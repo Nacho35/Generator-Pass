@@ -3,7 +3,48 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
+		<link rel="stylesheet" href="style.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap"
+			rel="stylesheet" />
+		<title>Password Generator</title>
 	</head>
-	<body></body>
+	<body>
+		<div id="root">
+			<div id="app">
+				<img id="logo" src="/images/fingerprint.svg" alt="logo" />
+				<h1 id="title">GreenPass Generator</h1>
+				<div id="content">
+					<input
+						id="password"
+						type="text"
+						placeholder="Create Password"
+						readonly />
+					<button id="copy">
+						<img src="/images/copy.svg" alt="copy" />
+					</button>
+				</div>
+				<div id="slider-container">
+					<input
+						class="slider"
+						min="8"
+						max="64"
+						type="range"
+						name="length"
+						id="range" />
+				</div>
+				<div id="info">
+					<p class="label">Password length</p>
+					<span class="counter" id="range">8</span>
+				</div>
+				<div class="buttons">
+					<button>Generate</button>
+					<button>Clear</button>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="script.js"></script>
 </html>
