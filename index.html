@@ -15,7 +15,9 @@
 		<div id="root">
 			<div id="app">
 				<img id="logo" src="/images/fingerprint.svg" alt="logo" />
-				<h1 id="title">GreenPass Generator</h1>
+				<h1 id="title">
+					<span style="color: #399918">GreenPass</span> Generator
+				</h1>
 				<div id="content">
 					<input
 						id="password"
@@ -29,21 +31,40 @@
 				<div id="slider-container">
 					<input
 						class="slider"
-						min="8"
+						min="0"
 						max="64"
 						type="range"
 						name="length"
-						id="range" />
+						id="range"
+						value="0" />
 				</div>
 				<div id="info">
 					<p class="label">Password length</p>
-					<span class="counter" id="range">8</span>
+					<span class="counter" id="counter">0</span>
+				</div>
+				<div id="password-strength">
+					<p id="label-strength" class="label-strength">Password strength</p>
+					<div id="strength-bar" class="weak"></div>
+					<div id="strength-text"></div>
 				</div>
 				<div class="buttons">
-					<button>Generate</button>
-					<button>Clear</button>
+					<button id="generate">
+						<img src="/images/key.svg" alt="key" />
+						<span>Generate Password</span>
+					</button>
+					<button id="clear">
+						<img src="/images/trash.svg" alt="trash" /> <span>Clear</span>
+					</button>
 				</div>
 			</div>
+			<footer>
+				<div id="footer">
+					<p class="footer-text">
+						Developed by:
+						<a href="https://github.com/Nacho35">Ignacio Morales</a>
+					</p>
+				</div>
+			</footer>
 		</div>
 	</body>
 	<script src="script.js"></script>

@@ -11,6 +11,7 @@ body {
 	font-weight: 600;
 	font-style: normal;
 	text-rendering: auto;
+	cursor: default;
 }
 
 #app {
@@ -72,25 +73,33 @@ body {
 
 #slider-container {
 	display: flex;
-	width: 25%;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	max-width: 400px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding: 20px;
+	margin-bottom: 10px;
+	border-radius: 8px;
+	box-shadow: -4px -4px 10px rgb(255, 255, 255),
+		inset 4px 4px 10px rgba(0, 0, 0, 0.05),
+		inset -4px -4px 10px rgb(255, 255, 255), 4px 4px 10px rgba(0, 0, 0, 0.05);
 }
 
 .slider {
 	display: flex;
 	width: 100%;
 	height: auto;
-	padding: 20px;
-	border-radius: 5px;
-	box-shadow: -4px -4px 10px rgb(255, 255, 255),
-		inset 4px 4px 10px rgba(0, 0, 0, 0.05),
-		inset -4px -4px 10px rgb(255, 255, 255), 4px 4px 10px rgba(0, 0, 0, 0.05);
+	padding: 0;
+	margin: 0;
 }
 
 #info {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 	font-size: normal;
 }
 
@@ -112,4 +121,234 @@ body {
 
 .label {
 	font-weight: 600;
+	text-transform: uppercase;
+}
+
+.buttons button img {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+#generate {
+	cursor: pointer;
+	position: relative;
+	padding: 10px 24px;
+	font-size: 20px;
+	color: #fff;
+	background-color: #333;
+	border: #333;
+	border-radius: 5px;
+	font-weight: 600;
+	transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+	overflow: hidden;
+	margin-right: 1rem;
+	text-transform: capitalize;
+	margin-top: 10px;
+}
+
+#generate::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	margin: auto;
+	width: auto;
+	height: auto;
+	border-radius: inherit;
+	scale: 0;
+	z-index: -1;
+	background-color: #399918;
+	transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+#generate:hover::before {
+	scale: 3;
+}
+
+#generate:hover {
+	color: #fff;
+	scale: 1.1;
+	border-color: #399918;
+	box-shadow: 0 0px 20px rgba(0, 0, 0, 0);
+}
+
+#generate:active {
+	scale: 1;
+}
+
+#clear {
+	cursor: pointer;
+	position: relative;
+	padding: 10px 24px;
+	font-size: 20px;
+	color: #fff;
+	background-color: #333;
+	border: #333;
+	color: #fff;
+	border-radius: 5px;
+	font-weight: 600;
+	transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+	overflow: hidden;
+	margin-left: 1rem;
+	text-transform: capitalize;
+}
+
+#clear::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	margin: auto;
+	width: auto;
+	height: auto;
+	border-radius: inherit;
+	scale: 0;
+	z-index: -1;
+	background-color: #295f98;
+	transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+#clear:hover::before {
+	scale: 3;
+}
+
+#clear:hover {
+	color: #fff;
+	scale: 1.1;
+	border-color: #295f98;
+	box-shadow: 0 0px 20px rgba(0, 0, 0, 0);
+}
+
+#clear:active {
+	scale: 1;
+}
+
+.toast {
+	position: fixed;
+	top: 20px;
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: #333;
+	color: #fff;
+	padding: 10px;
+	border-radius: 5px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.toast {
+	opacity: 0;
+	animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+	to {
+		opacity: 1;
+	}
+}
+
+#password-strength {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 200px;
+	height: 20px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	padding: 5px;
+	margin-bottom: 20px;
+}
+
+#strength-bar {
+	width: 0%;
+	height: 100%;
+	background-color: #dd5353;
+	transition: width 0.5s ease-in-out;
+}
+
+.weak {
+	background-color: #dd5353;
+}
+
+.moderate {
+	background-color: #fcde70;
+}
+
+.strong {
+	background-color: #519259;
+}
+
+.very-strong {
+	background-color: #1679ab;
+}
+
+.label-strength {
+	font-weight: 600;
+	text-transform: uppercase;
+	color: grey;
+}
+
+footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+}
+
+#footer {
+	margin: 0 auto;
+}
+
+.footer-text {
+	font-size: 1rem;
+	color: #333;
+}
+
+.footer-text a {
+	color: #1679ab;
+	text-decoration: none;
+}
+
+.footer-text a:hover {
+	color: #519259;
+}
+
+@media screen and (max-width: 767px) {
+	body {
+		font-size: 14px;
+		overflow-x: hidden;
+		margin: 0;
+		box-sizing: border-box;
+	}
+
+	#app {
+		width: 100%;
+		overflow-x: hidden;
+	}
+
+	.buttons {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		width: 80%;
+	}
+
+	#slider-container {
+		width: 85%;
+	}
+
+	#generate {
+		margin-top: 10px;
+		margin-bottom: 1rem;
+		width: 100%;
+		box-sizing: border-box;
+	}
+
+	#copy {
+		margin-left: 10px;
+	}
+
+	#password {
+		width: 100%;
+		margin: 1rem;
+		box-sizing: border-box;
+	}
 }
